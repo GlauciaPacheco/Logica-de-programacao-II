@@ -1,2 +1,2 @@
-# Logica de programação II
- Desenhos, animações e um jogo
+# Logica de programacao II
+ Desenhos, animacoes e jogo

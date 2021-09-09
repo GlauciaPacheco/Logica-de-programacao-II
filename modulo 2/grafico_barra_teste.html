@@ -1,0 +1,53 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    function desenhaRetangulo(x, y, largura, altura, cor) {
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+        pincel.fillStyle = cor;
+        pincel.fillRect(x, y, largura, altura);
+        pincel.strokeStyle = 'black';
+        pincel.strokeRect(x, y, largura, altura);
+    }
+
+    function desenhaTexto(x, y, texto) {
+        var tela = document.querySelector("canvas");
+        var pincel = tela.getContext("2d");
+
+        pincel.font = "15px Georgia";
+        pincel.fillStyle = "black";
+        pincel.fillText(texto, x, y);
+    }
+
+    var cores = ["blue", "green", "yellow", "red"];
+    var serie2015 = [50, 25, 20, 5];
+    var serie2016 = [65, 20, 13, 2];
+
+    function desenhaBarra(x, y, serie, cores, texto) {
+        desenhaTexto(x + 5, y - 10, texto);
+        for (var posicao = 0; posicao < serie.length; posicao++) {
+            desenhaRetangulo(x, y, 50, serie[posicao], cores[posicao]);
+            y = y + serie[posicao];
+        }
+    }
+    desenhaBarra(50, 50, serie2015, cores, '2015');
+    desenhaBarra(150, 50, serie2016, cores, '2016');
+
+    var plataformas = ['Chrome', 'Firefox', 'Safari', 'Outros'];
+
+    function desenhaLegenda(x, y, tamanho, cores, texto) {
+
+        for(var posicao = 0; posicao < cores.length; posicao++) {
+            desenhaTexto(x+30, y+15, texto[posicao]);
+            desenhaRetangulo(x, y, tamanho, tamanho, cores[posicao]);
+            y = y + 30
+        }
+    }
+
+    desenhaLegenda(250, 50, 20, cores, plataformas);
+
+
+
+</script>
